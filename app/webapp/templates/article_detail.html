@@ -1,17 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1 class="detail">Detail</h1>
-    <p class="main_page"><a class="main_page_href" href="{% url "index_page" %}">На главную</a></p>
+{% extends "base.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+   <h1 class="detail">Detail</h1>
     <p class="detail_desc">Description: {{ article.description }}</p>
-    <p class="details">Description: {{ article.details }}</p>
+    <p class="details">Details: {{ article.details }}</p>
     <p class="detail_status">Status: {{ article.status }}</p>
     <p class="detail_date">Date: {{ article.done_date  }}</p>
-</body>
-</html>
+{% endblock %}

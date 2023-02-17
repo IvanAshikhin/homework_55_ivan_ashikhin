@@ -1,13 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1 class="new_task">New Task</h1>
+{% extends "base.html" %}
+{% block title %}Create Article{% endblock %}
+{% block content %}
+ <h1 class="new_task">New Task</h1>
     <form method="POST" action="{% url "add_task" %}">
   {% csrf_token %}
   <label for="description">Description:</label>
@@ -20,11 +14,8 @@
     <option value="Done">Done</option>
     <option value="New">New</option>
   </select><br>
-
   <label for="done_date">Done Date:</label>
   <input type="date" id="done_date" name="done_date"><br>
   <input type="submit" value="Submit">
 </form>
-
-</body>
-</html>
+{% endblock %}

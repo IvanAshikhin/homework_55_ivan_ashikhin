@@ -1,19 +1,15 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    {% for article in articles %}
-    <h2 class="description">{{ article.description }}</h2>
-    <h2 class="status">{{ article.status }}</h2>
-    <h2 class="done_date">{{ article.done_date }}</h2>
-    <p class="more"><a class="more_href" href="{% url 'detail_task' article.pk%}">Подробнее</a></p>
-    <p class="delete"><a class="delete_href" href="/article/delete?pk={{article.pk}}">Удалить</a></p>
-    {% endfor %}
-    <p><a class="add_new_task" href="{% url 'add_task' %}">Добавить новую задачу</a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block menu %}
+   <li><a href="{% url 'add_task' %}">Add Task</a></li>
+{% endblock %}
+{% block content %}
+   <h1 class ='task'>Tasks:</h1>
+   <hr/>
+   {% for article in articles %}
+       <h2>{{ article.description }}</h2>
+       <div>{{ article.status }}</div>
+       <div>{{ article.done_date }}</div>
+       <p><a href="{% url 'detail_task' article.pk %}">More...</a></p>
+       <hr/>
+   {% endfor %}
+{% endblock %}
