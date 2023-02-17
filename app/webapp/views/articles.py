@@ -1,5 +1,5 @@
 from django.core.handlers.wsgi import WSGIRequest
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from webapp.models import Article
 
@@ -17,8 +17,8 @@ def add_view(request: WSGIRequest):
     return redirect(f'/article/?pk={article.pk}')
 
 
-def detail_view(request,pk):
-    article = Article.objects.get(pk=pk)
+def detail_view(request, pk):
+    article = get_object_or_404(Article, pk=pk)
     context = {'article': article}
     return render(request, 'article_detail.html', context=context)
 
