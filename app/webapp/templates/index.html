@@ -11,7 +11,7 @@
     <h2 class="description">{{ article.description }}</h2>
     <h2 class="status">{{ article.status }}</h2>
     <h2 class="done_date">{{ article.done_date }}</h2>
-    <p class="more"><a class="more_href" href="/article/?pk={{article.pk}}">Подробнее</a></p>
+    <p class="more"><a class="more_href" href="/article/{{article.pk}}">Подробнее</a></p>
     <p class="delete"><a class="delete_href" href="/article/delete?pk={{article.pk}}">Удалить</a></p>
     {% endfor %}
     <p><a class="add_new_task" href="/article/add">Добавить новую задачу</a></p>

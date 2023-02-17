@@ -17,9 +17,8 @@ def add_view(request: WSGIRequest):
     return redirect(f'/article/?pk={article.pk}')
 
 
-def detail_view(request):
-    article_pk = request.GET.get('pk')
-    article = Article.objects.get(pk=article_pk)
+def detail_view(request,pk):
+    article = Article.objects.get(pk=pk)
     context = {'article': article}
     return render(request, 'article_detail.html', context=context)
 
