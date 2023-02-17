@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% for article in articles %}
+    <h2 class="description">{{ article.description }}</h2>
+    <h2 class="status">{{ article.status }}</h2>
+    <h2 class="done_date">{{ article.done_date }}</h2>
+    <p class="more"><a class="more_href" href="/article/?pk={{article.pk}}">Подробнее</a></p>
+    <p class="delete"><a class="delete_href" href="/article/delete?pk={{article.pk}}">Удалить</a></p>
+    {% endfor %}
+    <p><a class="add_new_task" href="/article/add">Добавить новую задачу</a></p>
+</body>
+</html>
