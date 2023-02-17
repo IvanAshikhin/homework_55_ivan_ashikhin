@@ -1,5 +1,6 @@
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 
 from webapp.models import Article
 
@@ -14,7 +15,7 @@ def add_view(request: WSGIRequest):
         'done_date': request.POST.get('done_date')
     }
     article = Article.objects.create(**article_data)
-    return redirect(f'/article/?pk={article.pk}')
+    return redirect(reverse("detail_task", kwargs={'pk':article.pk}))
 
 
 def detail_view(request, pk):
