@@ -1,1 +1,1 @@
-[{"model": "webapp.article", "pk": 2, "fields": {"description": "Почитать книгу", "status": "new", "done_date": "2023-02-13"}}]
+[{"model": "webapp.article", "pk": 2, "fields": {"description": "Почитать книгу", "details": null, "status": "new", "done_date": "2023-02-13"}}, {"model": "webapp.article", "pk": 18, "fields": {"description": "Погулять", "details": "На улице ", "status": "In progress", "done_date": "2023-02-18"}}, {"model": "webapp.article", "pk": 19, "fields": {"description": "Поделать дз", "details": "Очень усердно", "status": "Done", "done_date": "2023-02-03"}}]

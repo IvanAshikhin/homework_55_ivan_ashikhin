@@ -5,6 +5,7 @@ from django.db import models
 
 class Article(models.Model):
     description = models.TextField(max_length=500, null=False, blank=False, verbose_name='Описание задачи')
+    details = models.TextField(max_length=500,null=True, verbose_name='Подробное описание')
     status = models.CharField(max_length=100, null=False, default='new', blank=False, verbose_name='Статус')
     done_date = models.DateField(auto_now=False, verbose_name="Дата выполнения")
 

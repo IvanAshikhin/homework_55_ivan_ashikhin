@@ -9,6 +9,7 @@ def add_view(request: WSGIRequest):
         return render(request, 'article_create.html')
     article_data = {
         'description': request.POST.get('description'),
+        'details': request.POST.get('details'),
         'status': request.POST.get('status'),
         'done_date': request.POST.get('done_date')
     }
