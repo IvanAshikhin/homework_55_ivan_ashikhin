@@ -10,6 +10,7 @@
        <div>{{ article.status }}</div>
        <div>{{ article.done_date }}</div>
        <p><a href="{% url 'detail_task' article.pk %}">More...</a></p>
+       <p class="delete"><a class="delete_href" href="/article/delete?pk={{article.pk}}">Удалить</a></p>
        <hr/>
    {% endfor %}
 {% endblock %}
