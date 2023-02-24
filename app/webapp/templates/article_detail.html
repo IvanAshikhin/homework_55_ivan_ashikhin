@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }}{% endblock %}
+{% block menu %}
+   <li><a href="{% url 'add_task' %}">Add Task</a></li>
+   <li><a href="{% url 'task_update' article.pk %}">Update Task</a></li>
+{% endblock %}
 {% block content %}
    <h1 class="detail">Detail</h1>
     <p class="detail_desc">Description: {{ article.description }}</p>
