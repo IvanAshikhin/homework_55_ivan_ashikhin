@@ -24,13 +24,6 @@ def detail_view(request, pk):
     return render(request, 'article_detail.html', context=context)
 
 
-def delete_view(request):
-    article_pk = request.GET.get('pk')
-    article = Article.objects.get(pk=article_pk)
-    article.delete()
-    return redirect('/')
-
-
 def update_view(requset, pk):
     article = get_object_or_404(Article, pk=pk)
     if requset.method == "POST":
@@ -41,3 +34,14 @@ def update_view(requset, pk):
         article.save()
         return redirect('detail_task', pk=article.pk)
     return render(requset, 'task_update.html', context={'article': article})
+
+
+def delete_view(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    return render(request, 'article_confitm_delete.html', context={"article": article})
+
+
+def confirm_delete(request,pk):
+    article = get_object_or_404(Article, pk=pk)
+    article.delete()
+    return redirect('index_page')

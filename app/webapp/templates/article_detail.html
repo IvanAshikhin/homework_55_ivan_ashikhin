@@ -3,6 +3,7 @@
 {% block menu %}
    <li><a href="{% url 'add_task' %}">Add Task</a></li>
    <li><a href="{% url 'task_update' article.pk %}">Update Task</a></li>
+   <li><a href="{% url 'delete_task' article.pk %}">Delete Task</a></li>
 {% endblock %}
 {% block content %}
    <h1 class="detail">Detail</h1>
