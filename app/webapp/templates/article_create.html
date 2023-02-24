@@ -1,21 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Create Article{% endblock %}
 {% block content %}
- <h1 class="new_task">New Task</h1>
+    <h1 class="new_task">New Task</h1>
     <form method="POST" action="{% url "add_task" %}">
-  {% csrf_token %}
-  <label for="description">Description:</label>
-  <input type="text" id="description" name="description"><br>
-  <label for="details">Details:</label>
-  <input type="text" id="details" name="details"><br>
-  <label for="status">Status:</label>
-  <select id="status" name="status">
-    <option value="In progress">In Progress</option>
-    <option value="Done">Done</option>
-    <option value="New">New</option>
-  </select><br>
-  <label for="done_date">Done Date:</label>
-  <input type="date" id="done_date" name="done_date"><br>
-  <input type="submit" value="Submit">
-</form>
+    {% include 'partial/partial.html' with button_text='Create' %}
+    </form>
 {% endblock %}
