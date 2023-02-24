@@ -4,18 +4,19 @@ from django.urls import reverse
 
 from webapp.models import Article
 
+from webapp.forms import ArticleForm
+
 
 def add_view(request: WSGIRequest):
     if request.method == "GET":
-        return render(request, 'article_create.html')
-    article_data = {
-        'description': request.POST.get('description'),
-        'details': request.POST.get('details'),
-        'status': request.POST.get('status'),
-        'done_date': request.POST.get('done_date')
-    }
-    article = Article.objects.create(**article_data)
-    return redirect(reverse("detail_task", kwargs={'pk': article.pk}))
+        form = ArticleForm()
+        return render(request, 'article_create.html', context={'form': form})
+    form = ArticleForm(data=request.POST)
+    if not form.is_valid():
+        return render(request, 'article_create.html', context={'form': form})
+    else:
+        article = Article.objects.create(**form.cleaned_data)
+        return redirect(reverse("detail_task", kwargs={'pk': article.pk}))
 
 
 def detail_view(request, pk):
@@ -41,7 +42,7 @@ def delete_view(request, pk):
     return render(request, 'article_confitm_delete.html', context={"article": article})
 
 
-def confirm_delete(request,pk):
+def confirm_delete(request, pk):
     article = get_object_or_404(Article, pk=pk)
     article.delete()
     return redirect('index_page')

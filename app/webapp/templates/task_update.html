@@ -2,7 +2,7 @@
 {% block title %}Create Article{% endblock %}
 {% block content %}
     <h1 class="new_task">New Task</h1>
-    <form method="POST" action="{% url "task_update" article.pk %}">
-    {% include 'partial/partial.html' with button_text='Update' %}
+    <form method="POST" action="{% url "add_task" %}">
+    {% include 'partial/particial.html' with button_text='Update' %}
     </form>
 {% endblock %}
